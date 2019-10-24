@@ -66,6 +66,24 @@ def update_student_db():
                             last_name=last_name,
                             github=github)
 
+@app.route("/project")
+def show_project():
+
+    # psuedocode: from the student profile page, there will be a link to project
+    # the project page needs to know which project to display
+    # so that we can call the get_project_by_title function
+    # and send those values from the query to a jinja template
+
+    project_title = request.args.get('project_title')
+
+    title, description, max_grade = hackbright.get_project_by_title(project_title)
+
+
+
+    return render_template("project_info.html",
+                            title=title,
+                            description=description,
+                            max_grade=max_grade)
 
 
 
