@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a Student</title>
+</head>
+    <ul>
+        {% for message in get_flashed_messages() %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+<body>
+    <h1>Add a New Student to the Database:</h1>
+    <form action="/student-add-db" method="POST">
+        First Name: <input type="text" name="first_name"><br>
+        Last Name: <input type="text" name="last_name"><br>
+        GitHub: <input type="text" name="github"><br>
+        <input type="submit" value="Add Student">
+    </form>
+
+</body>
+</html>
